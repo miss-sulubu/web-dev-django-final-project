@@ -1,0 +1,47 @@
+`{% extends 'wander-master.html' %}
+{% load static %}
+{% block content %}
+    <footer>
+        <div class="container_12">
+            <div class="grid_12 mt-5"><br><br><br> <br>
+                <h1>Top Destinations</h1>
+                <div class="swiper product-swiper overflow-hidden">
+                    <div class="swiper-wrapper d-flex">
+
+                        {% for product in products %}
+                            <div class="swiper-slide">
+                                <div class="product-item ">
+                                    <div class="image-holder position-relative">
+                                        <a href="#">
+                                            <img src="{% static '../' %}{{ product.image }}" alt="categories" class="product-image img-fluid">
+                                        </a>
+                                        <a href="#" class="btn-icon btn-wishlist ">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" class="svg-color">
+                                                <use xlink:href="#heart"></use>
+                                            </svg>
+                                        </a>
+                                        <a href="#" class="btn-icon btn-cart ">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" class="svg-color">
+                                                <use xlink:href="#cart"></use>
+                                            </svg>
+                                        </a>
+
+                                        <div class="product-content">
+                                            <h5 class="element-title text-uppercase fs-6 mt-3">
+                                                <a href="#">{{ product.name }}</a>
+                                            </h5>
+                                            <br>
+                                            <a class="btn btn-outline-danger" href="/destinations/delete/{{ product.id }}">Delete</a>
+                                            <a class="btn btn-outline-info" href="/destinations/update/{{ product.id }}">Update</a>
+{#                                            <a class="btn btn-outline-success" href="/destinations/pay/{{ product.id }}">Pay</a>#}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+    </footer>
+{% endblock %}`
